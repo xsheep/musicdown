@@ -14,14 +14,13 @@ import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.Logs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hui.common.utils.JSONReader;
 import com.xiao.musicdown.constants.Constants;
 import com.xiao.musicdown.model.SongGatherResult;
 import com.xiao.musicdown.service.MusicService;
 import com.xiao.musicdown.utils.CommonUtils;
+import com.xiao.musicdown.utils.JSONReader;
 
 public class Music163Service implements MusicService {
 	
@@ -38,7 +37,9 @@ public class Music163Service implements MusicService {
 	@Override
 	public boolean search(WebDriver driver, String searchInputId, String songName) {
 		try {
-			Assert.isTrue(StringUtils.isNotBlank(songName), "songName is empty");
+			if (StringUtils.isBlank(songName)) {
+				throw new Exception("songName is empty");
+			}
 			WebElement searchInputElem = driver.findElement(By.id(searchInputId));
 			if (searchInputElem != null) {
 				searchInputElem.clear();

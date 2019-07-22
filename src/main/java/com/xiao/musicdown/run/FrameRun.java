@@ -53,8 +53,8 @@ public class FrameRun {
 
 	private void initialize() {
 		try {
-			//加载配置文件到常量池
-			Constants.refresh();
+			//加载chromedriver，也可将其加入环境变量
+			System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 			DefaultFontModify.loadIndyFont();
 			frame = new JFrame("网易云音乐歌曲下载");
 			frame.getContentPane().setLayout(null);
@@ -117,6 +117,7 @@ public class FrameRun {
 					if (returnVal == JFileChooser.APPROVE_OPTION) {
 						String filepath = fileChooser.getSelectedFile().getPath();
 						textField.setText(filepath);
+						Constants.Music163.SONG_SAVE_PATH = filepath;
 					}
 				}
 			});
@@ -152,6 +153,7 @@ public class FrameRun {
 			});
 			startDownBtn.setBounds(170, 262, 93, 23);
 			frame.getContentPane().add(startDownBtn);
+			frame.setLocationRelativeTo(null);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -28,8 +28,6 @@ public class Music163DownRun {
 	private final static Logger logger = LoggerFactory.getLogger(Music163DownRun.class);
 
 	public static void main(String[] args) {
-		//加载配置文件到常量池
-		Constants.refresh();
 		//创建模拟器
 		Simulator simulator = new Simulator();
 		//创建网易云音乐下载器服务

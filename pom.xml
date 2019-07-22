@@ -16,22 +16,42 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <commonutils.version>1.0.0</commonutils.version>
+    <slf4j.version>1.7.9</slf4j.version>
+    <logback.version>1.2.3</logback.version>
+    <fastjson.version>1.2.5</fastjson.version>
   </properties>
 
   <dependencies>
   
-  	<dependency>
-	  <groupId>com.hui.common</groupId>
-	  <artifactId>common-utils</artifactId>
-	  <version>${commonutils.version}</version>
-	</dependency>
-	
 	<dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
         <version>3.4.0</version>
     </dependency>
+    
+    <dependency>
+	  	<groupId>org.slf4j</groupId>
+	  	<artifactId>slf4j-api</artifactId>
+	  	<version>${slf4j.version}</version>
+	</dependency>
+	
+	<dependency>
+	  	<groupId>ch.qos.logback</groupId>
+	  	<artifactId>logback-classic</artifactId>
+	  	<version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+	  	<groupId>ch.qos.logback</groupId>
+	  	<artifactId>logback-core</artifactId>
+	  	<version>${logback.version}</version>
+	</dependency>
+	
+	<dependency>
+         <groupId>com.alibaba</groupId>
+         <artifactId>fastjson</artifactId>
+         <version>${fastjson.version}</version>
+     </dependency>
     
     <dependency>
 	  	<!-- jsoup HTML parser library @ https://jsoup.org/ -->

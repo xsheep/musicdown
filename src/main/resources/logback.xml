@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+
+    <property name="LOG_HOME" value="${user.dir}/logs/info"></property>
+    <property name="appName" value="app_run"></property>
+    
+    <property name="ERROR_LOG_HOME" value="${user.dir}/logs/error"></property>
+    <property name="errorAppName" value="app_error"></property>
+    
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="appLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${appName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HOME}/%d{yyyyMMdd,aux}/${appName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+<!--             <MaxHistory>60</MaxHistory>日志保存天数，超过60天会删除旧文件 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [ %thread ] - [ %-5level ] [ %logger{50} : %line ] - %msg%n</pattern>
+        </layout>
+<!--         <filter class="ch.qos.logback.classic.filter.LevelFilter"> -->
+<!-- 	        <level>INFO</level>  只打印Info日志   -->
+<!-- 	        <onMatch>ACCEPT</onMatch>   -->
+<!-- 	        <onMismatch>DENY</onMismatch>   -->
+<!-- 	    </filter>   -->
+    </appender>
+    
+    <appender name="errorLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${ERROR_LOG_HOME}/${errorAppName}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${ERROR_LOG_HOME}/%d{yyyyMMdd,aux}/${errorAppName}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+<!--             <MaxHistory>60</MaxHistory>日志保存天数，超过60天会删除旧文件 -->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [ %thread ] - [ %-5level ] [ %logger{50} : %line ] - %msg%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+	        <level>ERROR</level>
+	        <onMatch>ACCEPT</onMatch>  
+	        <onMismatch>DENY</onMismatch>  
+	    </filter>
+    </appender>
+    
+    <root level="info">
+        <appender-ref ref="stdout" />
+        <appender-ref ref="appLogAppender" />
+        <appender-ref ref="errorLogAppender" />
+    </root>
+    
+</configuration> 

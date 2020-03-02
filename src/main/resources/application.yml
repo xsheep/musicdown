@@ -1,0 +1,22 @@
+baseDir: ${user.dir}/target/
+
+spring:
+  application:
+    name: archetype
+  thymeleaf:
+    prefix:
+      classpath: /templates
+    cache: false
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8080/eureka/
+
+server:
+  port: 8082

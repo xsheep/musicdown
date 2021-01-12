@@ -8,7 +8,7 @@ import com.xiao.musicdown.constants.Constants;
 
 /**
  * @ClassName SongGatherResult
- * @Description 歌曲采集结果Bean
+ * @Description 歌曲采集结果
  * @author XiaoRong
  * @Date 2019年7月3日 下午2:19:39
  * @version 1.0.0

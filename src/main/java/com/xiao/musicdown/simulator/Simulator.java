@@ -73,7 +73,7 @@ public class Simulator {
 		cap.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
 		
 		//创建HashMap类的一个对象
-		Map<String, Object> prefs = new HashMap<String, Object>();
+		Map<String, Object> prefs = new HashMap<>();
 		//设置提醒的设置，2表示block
 		prefs.put("profile.default_content_setting_values.notifications", 2);
 		cap.setCapability("prefs", prefs);

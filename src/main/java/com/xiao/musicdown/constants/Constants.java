@@ -38,12 +38,12 @@ public class Constants {
 		/**
 		 * @Field @SONG_SAVE_PATH : 歌曲默认保存路径
 		 */
-		public static String SONG_SAVE_PATH = "D:\\MisicDown\\";
+		public static String SONG_SAVE_PATH = "D:\\MusicDown\\";
 		
 		/**
 		 * @Field @SONG_FORMAT : 音乐文件格式
 		 */
-		public static List<String> SONG_FORMAT = new ArrayList<String>();
+		public static List<String> SONG_FORMAT = new ArrayList<>();
 		
 		/**
 		 * @Field @SEARCH_SONG_TIMEOUT : 搜索歌曲的超时时间，默认10秒

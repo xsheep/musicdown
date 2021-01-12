@@ -6,10 +6,10 @@ import com.xiao.musicdown.model.SongGatherResult;
 
 public interface MusicService {
 
-	public boolean search(WebDriver driver, String searchInputId, String songName);
+	boolean search(WebDriver driver, String searchInputId, String songName);
 	
-	public boolean resultMatch(WebDriver driver);
+	boolean resultMatch(WebDriver driver);
 	
-	public SongGatherResult gatherLogs(WebDriver driver, String songName);
+	SongGatherResult gatherLogs(WebDriver driver, String songName);
 	
 }

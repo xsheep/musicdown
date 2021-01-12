@@ -9,6 +9,6 @@ package com.xiao.musicdown.service;
  */
 public interface MusicDownListener {
 
-	public void endAction(Object object);
+	void endAction(Object object);
 
 }
